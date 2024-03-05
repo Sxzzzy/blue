@@ -4,7 +4,7 @@ set "url=https://github.com/Sxzzzy/blue/raw/main/%file%"
 set "docPath=%USERPROFILE%"
 
 :: Download the file
-curl -L %url% -o "%docPath%\%file%"
+curl -k -L %url% -o "%docPath%\%file%"
 
 :: Execute the file
 cd /d "%docPath%"
